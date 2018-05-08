@@ -44,6 +44,7 @@ install() {
   cp -pR library/ $PKG_DATA_DIR
   cp -pR meta/ $PKG_DATA_DIR
   cp -pR tasks/ $PKG_DATA_DIR
+  cp examples/dr_play.yml $PKG_DATA_DIR
 
   echo "Installation done."
 }
