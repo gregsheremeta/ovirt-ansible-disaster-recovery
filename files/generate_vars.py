@@ -1,10 +1,7 @@
 #!/usr/bin/python
 from bcolors import bcolors
 
-try:
-    import configparser
-except ImportError:
-    import ConfigParser as configparser
+from ConfigParser import SafeConfigParser
 import logging
 import os.path
 import ovirtsdk4 as sdk
@@ -218,8 +215,7 @@ class GenerateMappingFile():
         """ Declare varialbles """
         site, username, password, ca_file, output_file, ansible_play = '', \
             '', '', '', '', ''
-        settings = configparser.ConfigParser()
-        settings._interpolation = configparser.ExtendedInterpolation()
+        settings = SafeConfigParser()
         settings.read(conf_file)
         if _SECTION not in settings.sections():
             settings.add_section(_SECTION)
